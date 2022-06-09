@@ -1,15 +1,14 @@
-import Aircraft from './Aircraft';
-import Boat from './Boat';
-import Car from './Car';
+import ReverseSort from './concrete/ReverseSort';
+import Sort from './concrete/Sort';
+import SortContext from './concrete/SortContext';
 
-const jeep = new Car('Jeep');
-console.log(jeep);
-jeep.move();
+const arrStrings = ['a', 'c', 'd', 'b'];
 
-const mustang = new Aircraft('P-51 Mustang');
-console.log(mustang);
-mustang.move();
+const defaultSort = new Sort();
+const reverseSort = new ReverseSort();
 
-const carraca = new Boat('Carrack');
-console.log(carraca);
-carraca.move();
+const context = new SortContext(defaultSort);
+context.logSortedArray(arrStrings);
+
+context.setSortAlgorithm(reverseSort);
+context.logSortedArray(arrStrings);
